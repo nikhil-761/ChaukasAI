@@ -1,0 +1,23 @@
+{
+  "id": "/",
+  "name": "Chaukas AI - From Complaint to Closure",
+  "short_name": "Chaukas AI",
+  "description": "AI-powered civic issue reporting, prioritisation and resolution tracking.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#05070F",
+  "theme_color": "#05070F",
+  "categories": ["utilities", "government", "productivity"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Report an issue", "short_name": "Report", "url": "/report", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "City dashboard", "short_name": "Dashboard", "url": "/dashboard", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Track complaint", "short_name": "Track", "url": "/track", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

@@ -1,0 +1,2 @@
+# Optional: iPhone HEIC photos support (agar install na ho to bhi app chalega)
+pillow-heif>=0.16

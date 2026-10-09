@@ -1,0 +1,15 @@
+# secrets & local data - GitHub par kabhi push nahi
+.env
+backend/.env
+backend/env.ready
+frontend/env.ready
+Vision-Agent/.env
+backend/data/
+# deps / builds
+node_modules/
+frontend/dist/
+venv/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
