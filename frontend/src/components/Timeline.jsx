@@ -20,8 +20,8 @@ export default function Timeline({ c }) {
     <ol className="relative space-y-6">
       {steps.map((s, i) => (
         <li key={s.title} className="relative flex animate-fadeUp gap-3.5" style={{ animationDelay: `${i * 110}ms` }}>
-          {i < steps.length - 1 && <span className={`absolute left-[13px] top-8 h-[calc(100%-6px)] w-0.5 rounded ${s.done && steps[i + 1].done ? 'bg-gradient-to-b from-brand-500 to-cyan2' : 'bg-ink/10'}`} />}
-          <span className={`z-10 grid h-7 w-7 shrink-0 place-items-center rounded-full ${s.done ? 'bg-gradient-to-br from-brand-500 to-cyan2 text-white shadow-[0_0_16px_rgba(47,128,255,.7)]' : 'border border-ink/15 bg-canvas text-dim'}`}>
+          {i < steps.length - 1 && <span className={`absolute left-[13px] top-8 h-[calc(100%-6px)] w-0.5 rounded ${s.done && steps[i + 1].done ? 'bg-brand-500' : 'bg-ink/10'}`} />}
+          <span className={`z-10 grid h-7 w-7 shrink-0 place-items-center rounded-full ${s.done ? 'bg-brand-500 text-white ' : 'border border-ink/15 bg-canvas text-dim'}`}>
             {s.done ? <Check size={14} strokeWidth={3} /> : <Circle size={7} />}
           </span>
           <div className="pb-1">

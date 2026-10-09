@@ -51,11 +51,11 @@ export default function Drawer({ c, onClose, act, remove, actor }) {
 
   return (
     <div className="fixed inset-0 z-[80]" role="dialog" aria-label="Complaint details">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-black/60 " onClick={onClose} />
       <aside className="absolute inset-y-0 right-0 flex w-full max-w-2xl animate-fadeIn flex-col border-l border-ink/10 bg-canvas shadow-2xl">
         <header className="flex items-center justify-between gap-3 border-b border-ink/10 px-4 py-3 sm:px-6" style={{ paddingTop: 'calc(12px + var(--safe-t))' }}>
           <div className="min-w-0">
-            <div className="flex flex-wrap items-center gap-2"><h2 className="font-display text-xl font-extrabold">{c.complaint_id}</h2><StatusPill status={c.status} /><SeverityBadge level={c.severity.level} score={c.severity.score} />{c.flagged && <span className="chip bg-amber-500/15 text-amber-300"><Flag size={12} />{tr('Flagged', 'फ़्लैग')}</span>}</div>
+            <div className="flex flex-wrap items-center gap-2"><h2 className="font-display text-xl font-bold">{c.complaint_id}</h2><StatusPill status={c.status} /><SeverityBadge level={c.severity.level} score={c.severity.score} />{c.flagged && <span className="chip bg-amber-500/15 text-amber-300"><Flag size={12} />{tr('Flagged', 'फ़्लैग')}</span>}</div>
             <div className="mt-0.5 truncate text-xs text-dim">{fmtDate(c.created_at)} · {tx(c.location.area)}</div>
           </div>
           <button onClick={onClose} aria-label="Close" className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line bg-ink/[.06] hover:text-fg"><X size={17} /></button>

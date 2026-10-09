@@ -24,18 +24,17 @@ function Processing({ preview, idx }) {
     <div className="container-x grid min-h-[78vh] max-w-4xl place-items-center py-8">
       <div className="grid w-full items-center gap-8 md:grid-cols-[1fr_1.05fr]">
         <div className="relative mx-auto w-full max-w-sm">
-          <div className="absolute -inset-8 rounded-full bg-brand-600/30 blur-[80px]" />
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-ink/15 shadow-card">
+          <div className="absolute -inset-8 rounded-full bg-brand-600/30 hidden" />
+          <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-ink/15 shadow-card">
             {preview ? <img src={preview} alt="" className="h-full w-full object-cover" /> : <div className="h-full w-full bg-panel2" />}
-            <div className="absolute inset-0 bg-gradient-to-b from-brand-600/20 via-transparent to-cyan-400/15" />
-            <div className="absolute inset-x-0 h-24 animate-scan bg-gradient-to-b from-transparent via-cyan2/40 to-transparent"><div className="absolute inset-x-0 bottom-0 h-px bg-cyan2 shadow-[0_0_18px_#22D3EE]" /></div>
+            
             {['left-3 top-3 border-l-2 border-t-2 rounded-tl-xl', 'right-3 top-3 border-r-2 border-t-2 rounded-tr-xl', 'left-3 bottom-3 border-l-2 border-b-2 rounded-bl-xl', 'right-3 bottom-3 border-r-2 border-b-2 rounded-br-xl'].map((c) => <span key={c} className={`absolute h-8 w-8 border-mint ${c}`} />)}
-            <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-xl text-white bg-black/55 px-3 py-2 text-[11px] font-bold tracking-widest backdrop-blur"><span className="text-mint">{tr('ANALYSING', 'जाँच जारी')}</span><span>{pct}%</span></div>
+            <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-xl text-white bg-black/55 px-3 py-2 text-[11px] font-bold tracking-widest "><span className="text-mint">{tr('ANALYSING', 'जाँच जारी')}</span><span>{pct}%</span></div>
           </div>
         </div>
         <div>
           <h2 className="h-display text-3xl">{tr('Chaukas AI is', 'चौकस AI')} <span className="gradient-text">{tr('working', 'काम कर रहा है')}</span></h2>
-          <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-ink/10"><div className="h-full rounded-full bg-gradient-to-r from-brand-500 to-mint transition-all duration-700" style={{ width: `${pct}%` }} /></div>
+          <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-ink/10"><div className="h-full rounded-full bg-brand-500 transition-all duration-700" style={{ width: `${pct}%` }} /></div>
           <ul className="mt-6 space-y-2.5">
             {PIPE.map(([n, d, nh, dh], i) => (
               <li key={n} className={`flex items-center gap-3 rounded-2xl border px-4 py-3 transition-all duration-500 ${i <= idx ? 'border-ink/10 bg-ink/[.05] opacity-100' : 'border-transparent opacity-30'}`}>
@@ -142,8 +141,8 @@ export default function Report() {
     return (
       <div className="container-x max-w-4xl py-8 sm:py-12">
         <div className="mb-7 flex items-center gap-4 animate-fadeUp">
-          <span className="relative grid h-14 w-14 shrink-0 place-items-center rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 text-white shadow-[0_0_40px_-4px_rgba(52,245,197,.7)]">
-            <span className="absolute inset-0 animate-pulseRing rounded-full bg-emerald-400/50" />
+          <span className="relative grid h-14 w-14 shrink-0 place-items-center rounded-full bg-brand-500 text-white ">
+            <span className="absolute inset-0 hidden rounded-full bg-emerald-400/50" />
             <Check size={28} strokeWidth={3} className="relative" />
           </span>
           <div>
@@ -189,7 +188,7 @@ export default function Report() {
       <ol data-tour="report-steps" className="my-7 flex items-center gap-2">
         {STEPS.map(([s, sh], i) => (
           <li key={s} className="flex flex-1 items-center gap-2 last:flex-none">
-            <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-full text-xs font-extrabold transition-all duration-500 ${i < step ? 'bg-emerald-500 text-white' : i === step ? 'bg-gradient-to-br from-brand-500 to-cyan2 text-white shadow-glow' : 'bg-ink/10 text-dim'}`}>
+            <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-full text-xs font-bold transition-all duration-500 ${i < step ? 'bg-emerald-500 text-white' : i === step ? 'bg-brand-500 text-white ' : 'bg-ink/10 text-dim'}`}>
               {i < step ? <Check size={16} strokeWidth={3} /> : i + 1}
             </span>
             <span className={`hidden text-sm font-semibold sm:block ${i === step ? 'text-fg' : 'text-dim'}`}>{tr(s, sh)}</span>
@@ -206,21 +205,21 @@ export default function Report() {
               {preview ? (
                 <div className="relative overflow-hidden rounded-3xl border border-ink/10">
                   <img src={preview} alt="Selected" className="max-h-[440px] w-full object-cover" />
-                  <button onClick={() => { setFile(null); setPreview(null) }} className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full text-white bg-black/65 px-3.5 py-2 text-xs font-bold backdrop-blur"><X size={13} /> {tr('Change', 'बदलें')}</button>
+                  <button onClick={() => { setFile(null); setPreview(null) }} className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full text-white bg-black/65 px-3.5 py-2 text-xs font-bold "><X size={13} /> {tr('Change', 'बदलें')}</button>
                   <span className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-full bg-emerald-500/90 px-3 py-1.5 text-xs font-bold"><Check size={13} /> {tr('Photo ready', 'फ़ोटो तैयार')}</span>
                 </div>
               ) : (
                 <div data-tour="report-photo" className="grid gap-3 sm:grid-cols-2">
-                  <label className="group relative flex cursor-pointer flex-col items-center gap-3 overflow-hidden rounded-3xl border border-brand-400/40 bg-gradient-to-br from-brand-500/20 to-cyan2/10 px-4 py-12 text-center transition hover:border-brand-400/70">
-                    <span className="absolute inset-0 animate-shine opacity-40" style={{ background: 'linear-gradient(100deg,transparent 30%,rgba(255,255,255,.12),transparent 70%)' }} />
+                  <label className="group relative flex cursor-pointer flex-col items-center gap-3 overflow-hidden rounded-lg border-2 border-brand-500 bg-panel px-4 py-12 text-center transition hover:bg-panel2">
+                    <span className="absolute inset-0 hidden opacity-40" style={{ background: 'linear-gradient(100deg,transparent 30%,rgba(255,255,255,.12),transparent 70%)' }} />
                     {['left-3 top-3 border-l-2 border-t-2 rounded-tl-lg', 'right-3 top-3 border-r-2 border-t-2 rounded-tr-lg', 'left-3 bottom-3 border-l-2 border-b-2 rounded-bl-lg', 'right-3 bottom-3 border-r-2 border-b-2 rounded-br-lg'].map((c) => <span key={c} className={`absolute h-5 w-5 border-brand-300/80 ${c}`} />)}
-                    <span className="relative grid h-16 w-16 place-items-center rounded-full bg-gradient-to-br from-brand-500 to-cyan2 text-white shadow-glow transition group-hover:scale-110"><Camera size={28} /></span>
+                    <span className="relative grid h-16 w-16 place-items-center rounded-full bg-brand-500 text-white"><Camera size={28} /></span>
                     <span className="relative font-display text-lg font-bold">{tr('Take a photo', 'फ़ोटो खींचें')}</span>
                     <span className="relative text-xs text-mute">{tr('Opens the camera on your phone', 'फ़ोन का कैमरा खुलेगा')}</span>
                     <input type="file" accept="image/*" capture="environment" className="hidden" onChange={(e) => onFile(e.target.files?.[0])} />
                   </label>
                   <label className="group flex cursor-pointer flex-col items-center gap-3 rounded-3xl border border-dashed border-ink/20 px-4 py-12 text-center transition hover:border-ink/40 hover:bg-ink/[.04]">
-                    <span className="grid h-16 w-16 place-items-center rounded-full bg-ink/10 text-mute transition group-hover:scale-110"><ImagePlus size={28} /></span>
+                    <span className="grid h-16 w-16 place-items-center rounded-full bg-ink/10 text-mute "><ImagePlus size={28} /></span>
                     <span className="font-display text-lg font-bold">{tr('Upload from gallery', 'गैलरी से चुनें')}</span>
                     <span className="text-xs text-mute">{tr('JPG or PNG', 'JPG या PNG')}</span>
                     <input type="file" accept="image/*" className="hidden" onChange={(e) => onFile(e.target.files?.[0])} />
@@ -256,7 +255,7 @@ export default function Report() {
               </div>
               <textarea className="input min-h-32" placeholder={lang === 'hi' ? 'समस्या के बारे में लिखिए या बोलिए... जैसे: स्कूल के सामने बड़ा गड्ढा है' : 'Describe the problem or use the mic...'} value={text} onChange={(e) => setText(e.target.value)} />
               <div className="mt-3 flex flex-wrap items-center gap-3">
-                <button data-tour="report-mic" onClick={toggleMic} disabled={!SR} className={`btn ${listening ? 'bg-red-500 text-white shadow-[0_0_30px_-4px_rgba(239,68,68,.8)]' : 'btn-ghost'}`}>
+                <button data-tour="report-mic" onClick={toggleMic} disabled={!SR} className={`btn ${listening ? 'bg-red-500 text-white ' : 'btn-ghost'}`}>
                   {listening ? <><MicOff size={16} /> {tr('Stop', 'रोकें')}</> : <><Mic size={16} /> {tr('Speak', 'बोलें')}</>}
                 </button>
                 {listening && <span className="flex items-center gap-2 text-sm text-red-300"><span className="flex h-4 items-center gap-0.5">{[0, 1, 2, 3].map((i) => <span key={i} className="h-full w-0.5 animate-wave rounded bg-red-400" style={{ animationDelay: `${i * 110}ms` }} />)}</span>{tr('Listening...', 'सुन रहा हूँ...')}</span>}

@@ -75,7 +75,7 @@ export default function Track() {
                 : <PhotoPlaceholder category={c.analysis.category} label="Reported photo" className="h-52 sm:h-full" />}
               <div className="p-5 sm:p-6">
                 <div className="flex flex-wrap items-center gap-2"><StatusPill status={c.status} /><SeverityBadge level={c.severity.level} score={c.severity.score} /><CategoryTag category={c.analysis.category} /></div>
-                <h2 className="mt-3 font-display text-2xl font-extrabold leading-tight">{tx(c.analysis.problem)}</h2>
+                <h2 className="mt-3 font-display text-2xl font-bold leading-tight">{tx(c.analysis.problem)}</h2>
                 <div className="mt-4 space-y-2 text-sm text-mute">
                   <div className="flex items-center gap-2"><MapPin size={15} className="text-dim" />{tx(c.location.area)}</div>
                   <div className="flex items-center gap-2"><Landmark size={15} className="text-dim" />{tx(c.department.name)}</div>

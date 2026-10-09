@@ -22,7 +22,7 @@ export default function ApiStatus() {
   }, [])
   if (!down) return null
   return (
-    <div role="status" className="fixed inset-x-0 top-0 z-[90] flex items-center justify-center gap-2 bg-red-500/95 px-4 py-2 text-center text-xs font-semibold text-white shadow-lg backdrop-blur" style={{ paddingTop: 'max(.5rem, env(safe-area-inset-top))' }}>
+    <div role="status" className="fixed inset-x-0 top-0 z-[90] flex items-center justify-center gap-2 bg-red-500/95 px-4 py-2 text-center text-xs font-semibold text-white shadow-lg " style={{ paddingTop: 'max(.5rem, env(safe-area-inset-top))' }}>
       <WifiOff size={14} className="shrink-0" />
       <span>{tr('Server is not reachable. Retrying automatically...', 'सर्वर से कनेक्ट नहीं हो पा रहा। अपने-आप दोबारा कोशिश हो रही है...')}</span>
     </div>

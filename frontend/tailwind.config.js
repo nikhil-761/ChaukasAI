@@ -5,11 +5,13 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'system-ui', 'Segoe UI', 'Roboto', 'sans-serif'],
-        display: ['Outfit', '"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'system-ui', 'sans-serif'],
+        sans: ['"Noto Sans"', '"Noto Sans Devanagari"', 'system-ui', 'Segoe UI', 'Roboto', 'sans-serif'],
+        display: ['"Noto Sans"', '"Noto Sans Devanagari"', 'system-ui', 'Segoe UI', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
+      borderRadius: { '2xl': '8px', '3xl': '10px', xl: '8px', lg: '6px', md: '5px', full: '9999px' },
       colors: {
+        saffron: 'rgb(var(--saffron) / <alpha-value>)',
         canvas: 'rgb(var(--canvas) / <alpha-value>)',
         panel: 'rgb(var(--panel) / <alpha-value>)',
         panel2: 'rgb(var(--panel2) / <alpha-value>)',
@@ -30,7 +32,7 @@ export default {
         sev: { low: '#10B981', medium: '#F59E0B', high: '#F97316', critical: '#EF4444' },
       },
       boxShadow: {
-        glow: '0 0 0 1px rgb(var(--brand) / .35), 0 10px 40px -8px rgb(var(--brand) / .6)',
+        glow: 'none',
         card: 'var(--shadow-card)',
       },
       keyframes: {

@@ -143,9 +143,9 @@ function Launcher({ onClick, pulse }) {
   const { tr } = useLang()
   return (
     <button onClick={onClick} aria-label={tr('Open Guided Tutor', 'गाइडेड ट्यूटर खोलें')}
-      className="fixed bottom-[calc(104px+var(--safe-b))] right-3 z-[45] flex items-center gap-2 rounded-full border border-brand-400/50 bg-canvas/90 py-2 pl-2 pr-4 text-sm font-bold text-fg shadow-[0_12px_34px_-8px_rgba(47,128,255,.7)] backdrop-blur-xl transition active:scale-95 md:bottom-6 md:right-6 md:hover:-translate-y-0.5">
-      <span className="relative grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-brand-500 to-cyan2 text-white">
-        {pulse && <span className="absolute inset-0 animate-pulseRing rounded-full bg-brand-500/60" />}
+      className="fixed bottom-[calc(104px+var(--safe-b))] right-3 z-[45] flex items-center gap-2 rounded-full border border-brand-400/50 bg-canvas/90 py-2 pl-2 pr-4 text-sm font-bold text-fg   transition active:scale-95 md:bottom-6 md:right-6 md:hover:-translate-y-0.5">
+      <span className="relative grid h-9 w-9 place-items-center rounded-full bg-brand-500 text-white">
+        {pulse && <span className="absolute inset-0 hidden rounded-full bg-brand-500/60" />}
         <GraduationCap size={18} className="relative" />
       </span>
       <span>{tr('Guided Tutor', 'गाइडेड ट्यूटर')}</span>
@@ -255,7 +255,7 @@ export default function GuidedTutor() {
       {/* dim + spotlight */}
       {hole ? (
         <div className="absolute rounded-2xl ring-2 ring-brand-400 transition-all duration-300" style={{ top: hole.top, left: hole.left, width: hole.width, height: hole.height, boxShadow: '0 0 0 9999px rgba(3,6,18,.66), 0 0 40px 4px rgba(47,128,255,.55)' }}>
-          <span className="absolute -inset-1 animate-pulseRing rounded-[1.2rem] border border-brand-400/60" />
+          <span className="absolute -inset-1 hidden rounded-lg border border-brand-400/60" />
         </div>
       ) : (
         <div className="absolute inset-0" style={{ background: 'rgba(3,6,18,.62)' }} />
@@ -263,12 +263,12 @@ export default function GuidedTutor() {
 
       {/* tutor card */}
       <div className={`absolute inset-x-3 mx-auto w-auto max-w-[460px] ${centered ? 'top-1/2 -translate-y-1/2' : ''}`} style={{ ...(centered ? {} : cardPos), pointerEvents: 'auto' }}>
-        <div ref={cardRef} key={i} className="animate-fadeUp overflow-hidden rounded-3xl border border-ink/15 bg-panel text-fg shadow-[0_30px_80px_-20px_rgba(0,0,0,.7)]">
-          <div className="h-1 bg-ink/10"><div className="h-full bg-gradient-to-r from-brand-500 to-cyan2 transition-all duration-500" style={{ width: `${((i + 1) / TOUR.length) * 100}%` }} /></div>
+        <div ref={cardRef} key={i} className="animate-fadeUp overflow-hidden rounded-3xl border border-ink/15 bg-panel text-fg ">
+          <div className="h-1 bg-ink/10"><div className="h-full bg-brand-500 transition-all duration-500" style={{ width: `${((i + 1) / TOUR.length) * 100}%` }} /></div>
           <div className="p-4 sm:p-5">
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2">
-                <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-brand-500 to-cyan2 text-white"><GraduationCap size={16} /></span>
+                <span className="grid h-8 w-8 place-items-center rounded-full bg-brand-500 text-white"><GraduationCap size={16} /></span>
                 <span className="text-[11px] font-bold uppercase tracking-widest text-dim">{tr('Step', 'कदम')} {i + 1} / {TOUR.length}</span>
                 {speaking && <span className="flex h-3.5 items-center gap-0.5">{[0, 1, 2, 3].map((k) => <span key={k} className="h-full w-0.5 animate-wave rounded bg-brand-400" style={{ animationDelay: `${k * 110}ms` }} />)}</span>}
               </div>
@@ -278,7 +278,7 @@ export default function GuidedTutor() {
               </div>
             </div>
 
-            <h3 className="mt-3 font-display text-xl font-extrabold leading-snug">{step.title[idx]}</h3>
+            <h3 className="mt-3 font-display text-xl font-bold leading-snug">{step.title[idx]}</h3>
             <p className="mt-1.5 text-[15px] leading-relaxed text-mute">{step.text[idx]}</p>
 
             {voiceOn && error && (

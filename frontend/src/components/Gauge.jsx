@@ -16,7 +16,7 @@ export default function Gauge({ score = 0, size = 220, animate = true, label = t
         <defs>
           <filter id="gl" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4" /></filter>
         </defs>
-        <path d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="rgba(255,255,255,.08)" strokeWidth="14" strokeLinecap="round" />
+        <path d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="rgb(var(--ink) / .12)" strokeWidth="14" strokeLinecap="round" />
         {/* zone ticks */}
         {[3.5, 6.5, 8.5].map((t) => {
           const a = (-180 + (t / 10) * 180) * (Math.PI / 180)
@@ -31,7 +31,7 @@ export default function Gauge({ score = 0, size = 220, animate = true, label = t
       </svg>
       {label && (
         <div className="-mt-1 text-center">
-          <div className="font-display text-4xl font-extrabold leading-none tracking-tight">{Math.round(v)}<span className="text-lg font-bold text-dim">/10</span></div>
+          <div className="font-display text-4xl font-bold leading-none tracking-tight">{Math.round(v)}<span className="text-lg font-bold text-dim">/10</span></div>
           <div className="mt-1 text-[11px] font-bold uppercase tracking-[.22em]" style={{ color }}>{lang === 'hi' ? SEVERITY[level].hi : SEVERITY[level].label}</div>
         </div>
       )}

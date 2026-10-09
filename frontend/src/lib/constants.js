@@ -15,12 +15,12 @@ export const STATUS = {
 }
 
 export const CATEGORIES = {
-  road_damage:   { label: 'Road damage', hi: 'सड़क खराब', emoji: '🕳️' },
-  garbage:       { label: 'Garbage', hi: 'कचरा', emoji: '🗑️' },
-  streetlight:   { label: 'Streetlight', hi: 'स्ट्रीट लाइट', emoji: '💡' },
-  water_leakage: { label: 'Water leakage', hi: 'पानी का रिसाव', emoji: '💧' },
-  drainage:      { label: 'Drainage', hi: 'नाली / ड्रेनेज', emoji: '🌊' },
-  other:         { label: 'Other', hi: 'अन्य', emoji: '📍' },
+  road_damage:   { label: 'Road damage', hi: 'सड़क खराब' },
+  garbage:       { label: 'Garbage', hi: 'कचरा' },
+  streetlight:   { label: 'Streetlight', hi: 'स्ट्रीट लाइट' },
+  water_leakage: { label: 'Water leakage', hi: 'पानी का रिसाव' },
+  drainage:      { label: 'Drainage', hi: 'नाली / ड्रेनेज' },
+  other:         { label: 'Other', hi: 'अन्य' },
 }
 
 export const levelFromScore = (s) => (s >= 9 ? 'CRITICAL' : s >= 7 ? 'HIGH' : s >= 4 ? 'MEDIUM' : 'LOW')

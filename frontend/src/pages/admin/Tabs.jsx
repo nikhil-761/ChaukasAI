@@ -9,7 +9,7 @@ import { deptStats, isOverdue, needsReview, timeAgo, fmtDate, download, toCSV, c
 
 const Panel = ({ title, sub, children, className = '' }) => (
   <div className={`card p-4 sm:p-6 ${className}`}>
-    <div className="mb-4 flex items-baseline justify-between gap-2"><h3 className="font-display text-lg font-extrabold">{title}</h3>{sub && <span className="text-xs text-dim">{sub}</span>}</div>
+    <div className="mb-4 flex items-baseline justify-between gap-2"><h3 className="font-display text-lg font-bold">{title}</h3>{sub && <span className="text-xs text-dim">{sub}</span>}</div>
     {children}
   </div>
 )
@@ -33,7 +33,7 @@ export function DepartmentsTab({ complaints, openFiltered }) {
                   <td className="py-3 pr-3 font-medium">{tx(d.name)}</td><td className="px-2">{d.total}</td><td className="px-2">{d.open}</td>
                   <td className={`px-2 font-bold ${d.critical ? 'text-red-400' : ''}`}>{d.critical}</td><td className={`px-2 font-bold ${d.overdue ? 'text-amber-400' : ''}`}>{d.overdue}</td>
                   <td className="px-2 text-mute">{d.avg != null ? `${d.avg}h` : '-'}</td>
-                  <td className="pl-2"><div className="flex items-center gap-2"><div className="h-2 w-20 overflow-hidden rounded-full bg-ink/10"><div className="h-full rounded-full bg-gradient-to-r from-brand-500 to-cyan2" style={{ width: `${d.rate}%` }} /></div><b>{d.rate}%</b></div></td>
+                  <td className="pl-2"><div className="flex items-center gap-2"><div className="h-2 w-20 overflow-hidden rounded-full bg-ink/10"><div className="h-full rounded-full bg-brand-500" style={{ width: `${d.rate}%` }} /></div><b>{d.rate}%</b></div></td>
                 </tr>
               ))}
             </tbody>
@@ -67,7 +67,7 @@ export function AuditTab({ complaints, open, act }) {
     <div className="space-y-5">
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         {[[tr('Avg detection confidence', 'औसत पहचान भरोसा'), `${avgDet}%`], [tr('Avg verification confidence', 'औसत सत्यापन भरोसा'), `${avgRes}%`], [tr('Low-confidence detections', 'कम भरोसे वाली पहचान'), lowConf.length], [tr('Verifications to double-check', 'दोबारा जाँचने लायक सत्यापन'), resolved.filter(flagged).length]].map(([k, v]) => (
-          <div key={k} className="card p-4"><div className="label !mb-1">{k}</div><div className="font-display text-3xl font-extrabold">{v}</div></div>
+          <div key={k} className="card p-4"><div className="label !mb-1">{k}</div><div className="font-display text-3xl font-bold">{v}</div></div>
         ))}
       </div>
       <Panel title={tr('Resolution verifications', 'समाधान सत्यापन')} sub={tr('Amber = confidence < 90% or GPS > 50 m from the original spot', 'पीला = भरोसा < 90% या मूल जगह से GPS > 50 मी.')}>
@@ -125,7 +125,7 @@ export function MapTab({ complaints, open }) {
         <div className="flex flex-wrap gap-3 text-xs">{Object.entries(SEVERITY).map(([k, v]) => <span key={k} className="flex items-center gap-1.5"><i className="h-2.5 w-2.5 rounded-full" style={{ background: v.color }} />{lang === 'hi' ? v.hi : v.label}</span>)}</div>
         <span className="ml-auto text-xs text-dim">{list.length} {tr('pins', 'पिन')}</span>
       </div>
-      <div className="card p-1.5"><MapView complaints={list} center={CITIES[city].center} zoom={13} height={560} selectedId={sel} onSelect={(id) => { setSel(id); }} flyTo={CITIES[city].center} rounded="rounded-[1.4rem]" /></div>
+      <div className="card p-1.5"><MapView complaints={list} center={CITIES[city].center} zoom={13} height={560} selectedId={sel} onSelect={(id) => { setSel(id); }} flyTo={CITIES[city].center} rounded="rounded-lg" /></div>
       {sel && <div className="card flex items-center justify-between p-4"><b>{sel}</b><button className="btn-primary btn-sm" onClick={() => open(sel)}>{tr('Open details', 'विवरण खोलें')}</button></div>}
     </div>
   )

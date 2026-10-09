@@ -29,8 +29,8 @@ export default function Login({ onLogin }) {
   return (
     <div className="container-x grid min-h-[70vh] place-items-center py-10">
       <form onSubmit={submit} className="card w-full max-w-md animate-fadeUp p-6 sm:p-8">
-        <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-brand-500 to-cyan2 text-white shadow-glow"><ShieldCheck size={26} /></div>
-        <h1 className="mt-4 text-center font-display text-2xl font-extrabold">{tr('Admin sign in', 'एडमिन लॉगिन')}</h1>
+        <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-brand-500 text-white "><ShieldCheck size={26} /></div>
+        <h1 className="mt-4 text-center font-display text-2xl font-bold">{tr('Admin sign in', 'एडमिन लॉगिन')}</h1>
         <p className="mt-1 text-center text-sm text-mute">{tr('Only authorised administrators can open the control panel.', 'कंट्रोल पैनल सिर्फ़ अधिकृत एडमिन खोल सकते हैं।')}</p>
 
         <label className="label mt-6" htmlFor="au">{tr('Username', 'यूज़रनेम')}</label>

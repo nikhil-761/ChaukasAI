@@ -90,5 +90,5 @@ export function BarList({ rows, color = BRAND }) {
 }
 
 export function categoryRows(complaints, lang) {
-  return Object.entries(CATEGORIES).map(([k, v]) => ({ label: `${v.emoji} ${lang === 'hi' ? v.hi : v.label}`, value: complaints.filter((c) => c.analysis.category === k).length })).filter((r) => r.value > 0).sort((a, b) => b.value - a.value)
+  return Object.entries(CATEGORIES).map(([k, v]) => ({ label: (lang === 'hi' ? v.hi : v.label), value: complaints.filter((c) => c.analysis.category === k).length })).filter((r) => r.value > 0).sort((a, b) => b.value - a.value)
 }

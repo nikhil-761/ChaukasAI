@@ -9,7 +9,7 @@ import { isOverdue, needsReview, timeAgo, ageDays, deptStats } from './util'
 
 const Panel = ({ title, sub, children, className = '' }) => (
   <div className={`card p-5 sm:p-6 ${className}`}>
-    <div className="mb-4 flex items-baseline justify-between gap-2"><h3 className="font-display text-lg font-extrabold">{title}</h3>{sub && <span className="text-xs text-dim">{sub}</span>}</div>
+    <div className="mb-4 flex items-baseline justify-between gap-2"><h3 className="font-display text-lg font-bold">{title}</h3>{sub && <span className="text-xs text-dim">{sub}</span>}</div>
     {children}
   </div>
 )

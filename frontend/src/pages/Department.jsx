@@ -55,7 +55,7 @@ export default function Department() {
       </div>
 
       <div data-tour="dept-tabs" className="mt-6 inline-flex rounded-2xl border border-ink/10 bg-ink/[.05] p-1 text-sm font-semibold">
-        {[['open', tr('Open queue', 'खुली शिकायतें')], ['done', tr('Resolved', 'हल हुई')]].map(([k, l]) => <button key={k} onClick={() => setTab(k)} className={`rounded-xl px-4 py-2 transition ${tab === k ? 'bg-brand-500 text-white shadow-[0_0_20px_-4px_rgba(47,128,255,.8)]' : 'text-mute hover:text-fg'}`}>{l}</button>)}
+        {[['open', tr('Open queue', 'खुली शिकायतें')], ['done', tr('Resolved', 'हल हुई')]].map(([k, l]) => <button key={k} onClick={() => setTab(k)} className={`rounded-xl px-4 py-2 transition ${tab === k ? 'bg-brand-500 text-white ' : 'text-mute hover:text-fg'}`}>{l}</button>)}
       </div>
 
       {err && <div role="alert" className="mt-5 rounded-2xl border border-red-400/30 bg-red-500/10 p-3.5 text-sm text-red-300">{err}</div>}
@@ -71,7 +71,10 @@ export default function Department() {
           <Spot key={c.complaint_id} data-tour={i === 0 ? "dept-card" : undefined} className="card animate-fadeUp p-4 sm:p-5" style={{ animationDelay: `${Math.min(i, 8) * 50}ms` }}>
             <div className="flex flex-wrap items-center justify-between gap-2">
               <div className="flex items-center gap-2"><SeverityBadge level={c.severity.level} score={c.severity.score} /><CategoryTag category={c.analysis.category} /></div>
-              <StatusPill status={c.status} />
+              <span className="flex items-center gap-1.5">
+                {c.status !== 'resolved' && (Date.now() - new Date(c.created_at)) > 7 * 86400000 && <span className="chip bg-red-50 text-red-700 ring-1 ring-inset ring-red-200">{tr('Overdue (7+ days)', 'देरी (7+ दिन)')}</span>}
+                <StatusPill status={c.status} />
+              </span>
             </div>
             <div className="mt-3 font-display text-lg font-bold leading-snug">{tx(c.analysis.problem)}</div>
             <div className="mt-0.5 text-sm text-dim">{tx(c.location.area)} · {timeAgo(c.created_at)} · {c.complaint_id}</div>

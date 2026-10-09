@@ -33,10 +33,10 @@ export default function BeforeAfter({ c }) {
       <div className="relative aspect-[16/10] select-none">
         <div className="absolute inset-0">{after}</div>
         <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>{before}</div>
-        <div className="pointer-events-none absolute inset-y-0 w-0.5 bg-white shadow-[0_0_20px_rgba(255,255,255,.8)]" style={{ left: `${pos}%` }}>
-          <span className="absolute left-1/2 top-1/2 grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-sm font-bold text-brand-700 shadow-glow">⇆</span>
+        <div className="pointer-events-none absolute inset-y-0 w-0.5 bg-white " style={{ left: `${pos}%` }}>
+          <span className="absolute left-1/2 top-1/2 grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-sm font-bold text-brand-700 ">⇆</span>
         </div>
-        <span className="absolute left-3 top-3 rounded-full bg-black/60 px-2.5 py-1 text-[10px] font-bold tracking-widest text-white backdrop-blur">{tr('BEFORE', 'पहले')}</span>
+        <span className="absolute left-3 top-3 rounded-full bg-black/60 px-2.5 py-1 text-[10px] font-bold tracking-widest text-white ">{tr('BEFORE', 'पहले')}</span>
         <span className="absolute right-3 top-3 rounded-full bg-emerald-500/90 px-2.5 py-1 text-[10px] font-bold tracking-widest text-white">{tr('AFTER', 'बाद में')}</span>
         <input aria-label="Compare before and after" type="range" min="0" max="100" value={pos}
           onPointerDown={() => { touched.current = true }} onChange={(e) => { touched.current = true; setPos(+e.target.value) }}

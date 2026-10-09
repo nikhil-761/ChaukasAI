@@ -16,11 +16,11 @@ export default function ExplainCard({ c }) {
   const conf = useTween(pct, 1100)
   return (
     <div className="card">
-      <div className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full blur-[90px]" style={{ background: `${sev.color}33` }} />
+      <div className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full hidden" style={{ background: `${sev.color}33` }} />
       <div className="relative flex flex-wrap items-center justify-between gap-3 border-b border-ink/10 px-5 py-4 sm:px-6">
         <div>
           <div className="label !mb-0.5">{tr('Complaint ID', 'शिकायत ID')}</div>
-          <div className="font-display text-2xl font-extrabold tracking-tight">{c.complaint_id}</div>
+          <div className="font-display text-2xl font-bold tracking-tight">{c.complaint_id}</div>
         </div>
         <div className="flex flex-wrap items-center gap-2"><CategoryTag category={c.analysis.category} /><SeverityBadge level={c.severity.level} score={c.severity.score} size="lg" /></div>
       </div>

@@ -58,10 +58,10 @@ function Panel({ admin, logout }) {
         </div>
       </div>
 
-      <div className="scroll-hide sticky top-16 z-30 -mx-4 mt-6 overflow-x-auto bg-canvas/80 px-4 py-2 backdrop-blur-xl sm:mx-0 sm:rounded-2xl sm:px-2" style={{ top: 'calc(64px + var(--safe-t))' }}>
+      <div className="scroll-hide sticky top-16 z-30 -mx-4 mt-6 overflow-x-auto bg-canvas/80 px-4 py-2  sm:mx-0 sm:rounded-2xl sm:px-2" style={{ top: 'calc(64px + var(--safe-t))' }}>
         <div className="flex w-max gap-1.5">
           {TABS.map(([k, l, Icon]) => (
-            <button key={k} onClick={() => setTab(k)} className={`flex items-center gap-2 whitespace-nowrap rounded-xl px-3.5 py-2 text-sm font-semibold transition ${tab === k ? 'bg-brand-500 text-white shadow-[0_0_20px_-4px_rgba(47,128,255,.8)]' : 'text-mute hover:bg-ink/[.07] hover:text-fg'}`}><Icon size={15} />{l}</button>
+            <button key={k} onClick={() => setTab(k)} className={`flex items-center gap-2 whitespace-nowrap rounded-xl px-3.5 py-2 text-sm font-semibold transition ${tab === k ? 'bg-brand-500 text-white ' : 'text-mute hover:bg-ink/[.07] hover:text-fg'}`}><Icon size={15} />{l}</button>
           ))}
         </div>
       </div>

@@ -9,7 +9,7 @@ const systemTheme = () =>
 
 function readMode() {
   try { const m = localStorage.getItem(KEY); if (m === 'light' || m === 'dark' || m === 'system') return m } catch {}
-  return 'system'
+  return 'light'
 }
 
 function apply(theme) {
@@ -17,7 +17,7 @@ function apply(theme) {
   root.setAttribute('data-theme', theme)
   root.style.colorScheme = theme
   const meta = document.querySelector('meta[name="theme-color"]')
-  if (meta) meta.setAttribute('content', theme === 'light' ? '#F3F6FF' : '#05070F')
+  if (meta) meta.setAttribute('content', theme === 'light' ? '#153E7C' : '#0F141F')
 }
 
 export function ThemeProvider({ children }) {
@@ -57,7 +57,7 @@ export function ThemeSwitch({ className = '', labels = false }) {
   const idx = OPTS.findIndex((o) => o.k === mode)
   return (
     <div role="radiogroup" aria-label="Theme" className={`relative inline-flex items-center rounded-full border border-line bg-ink/[.05] p-[3px] ${className}`}>
-      <span aria-hidden className="absolute left-[3px] top-[3px] h-[calc(100%-6px)] rounded-full bg-gradient-to-br from-brand-500 to-cyan2 shadow-[0_4px_14px_-2px_rgb(var(--brand)/.7)] transition-transform duration-300 ease-[cubic-bezier(.3,.8,.2,1)]" style={{ width: 'calc((100% - 6px) / 3)', transform: `translateX(${idx * 100}%)` }} />
+      <span aria-hidden className="absolute left-[3px] top-[3px] h-[calc(100%-6px)] rounded-full bg-brand-500 transition-transform duration-300 ease-[cubic-bezier(.3,.8,.2,1)]" style={{ width: 'calc((100% - 6px) / 3)', transform: `translateX(${idx * 100}%)` }} />
       {OPTS.map(({ k, label, Icon }) => (
         <button key={k} role="radio" aria-checked={mode === k} aria-label={`${label} mode`} title={`${label} mode`} onClick={() => setMode(k)}
           className={`relative z-10 grid h-8 place-items-center rounded-full transition-colors ${labels ? 'w-auto flex-1 grid-flow-col gap-1.5 px-3 text-xs font-semibold' : 'w-8'} ${mode === k ? 'text-white' : 'text-mute hover:text-fg'}`}>
