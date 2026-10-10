@@ -4,12 +4,12 @@ REM Pehli baar 3-5 minute lagte hain (packages install). Uske baad 10 second.
 setlocal
 set ROOT=%~dp0
 
-where python >nul 2>nul
-if errorlevel 1 (
-  where py >nul 2>nul
+where py >nul 2>nul
+if not errorlevel 1 ( set PY=py ) else (
+  where python >nul 2>nul
   if errorlevel 1 ( echo [ERROR] Python install nahi hai. https://www.python.org/downloads/ se install karo ^(Add to PATH tick karna^). & pause & exit /b 1 )
-  set PY=py
-) else ( set PY=python )
+  set PY=python
+)
 
 where node >nul 2>nul
 if errorlevel 1 ( echo [ERROR] Node.js install nahi hai. https://nodejs.org se LTS install karo. & pause & exit /b 1 )
